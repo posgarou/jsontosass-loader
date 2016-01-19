@@ -3,10 +3,8 @@
 var loaderUtils = require("loader-utils");
 
 module.exports = function(content) {
-
-
-
     function jsonToSassVars (obj, indent) {
+
         // Make object root properties into sass variables
         var sass = "";
         for (var key in obj) {
@@ -34,9 +32,9 @@ module.exports = function(content) {
         return sass;
     }
 
+    this.cacheable();
+
     var query = loaderUtils.parseQuery(this.query);
-
-
 
     var sass = jsonToSassVars(query);
 
